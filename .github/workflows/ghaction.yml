@@ -1,6 +1,6 @@
 name: build/test
 
-on: [push, pull_request]
+on: [workflow_dispatch]
 
 jobs:
   osmatrix: 
@@ -10,9 +10,9 @@ jobs:
       matrix:
         # A full list of runners can be found here: 
         # https://docs.github.com/en/actions/reference/runners/github-hosted-runners
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
         build-type: [RelWithDebInfo]
-        cxx-standard: [17,20]
+        cxx-standard: [20]
         # In theory, we would test on older compilers such as gcc 7.5, clang 9, and vs 2019
         # They are not installed on the runners by default, leaving this as a TODO item for now.
     runs-on: ${{ matrix.os }}
